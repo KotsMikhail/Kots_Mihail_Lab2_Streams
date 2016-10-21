@@ -6,11 +6,9 @@ public class ConsoleInterface {
 
     public static void main(String[] args) {
         Option pack = new Option("p", "pack", true, "Puts your file into archive");
-        pack.setArgs(1);
-        pack.setArgName("path");
+        pack.setArgs(2);
         Option unpack = new Option("u", "unpack", true, "Takes your file from archive");
-        unpack.setArgs(1);
-        unpack.setArgName("path");
+        unpack.setArgs(2);
         OptionGroup group = new OptionGroup();
         group.addOption(pack);
         group.addOption(unpack);
@@ -20,14 +18,14 @@ public class ConsoleInterface {
         try {
             CommandLine commandLine = cmdLinePosixParser.parse(posixOptions, args);
             if (commandLine.hasOption("p")) {
-                String[] arguments = commandLine.getOptionValues("p");
-                try (InputStream is = new FileInputStream(arguments[0]);
-                     OutputStream os = new CompressionOutputStream(new FileOutputStream(arguments[1]))) {
+                try (InputStream is = new FileInputStream(commandLine.getOptionValues("p")[0]);
+                     OutputStream os = new CompressionOutputStream(new FileOutputStream(commandLine.getOptionValues("p")[1]))) {
                     int d;
                     while ((d = is.read()) != -1) {
                         os.write(d);
                     }
                     os.flush();
+                    System.out.println("Successfully created archive " + commandLine.getOptionValues("p")[1] + " from file " + commandLine.getOptionValues("p")[0]);
                 } catch (FileNotFoundException e) {
                     System.out.println("File not found");
                 } catch (IOException e) {
@@ -43,12 +41,6 @@ public class ConsoleInterface {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        //String str = "hello hello hello";
-        //String code = new String(LZ77.compress(str.getBytes()));
-        //String res = new String(LZ77.decompress(code.getBytes(), str.length()));
-        //System.out.println(code);
-        //System.out.println(res);
     }
 
 }

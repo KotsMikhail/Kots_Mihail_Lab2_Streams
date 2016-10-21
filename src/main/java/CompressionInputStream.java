@@ -1,38 +1,29 @@
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class CompressionInputStream extends InputStream {
 
     private static final int BUFFER_SIZE = 4095;
-    private static final int WINDOW_SIZE = 4095;
     private static final int WORD_SIZE = 15;
 
     private InputStream source;
     private byte[] buffer;
-    private int count;
+    private int length;
 
 
     public CompressionInputStream(InputStream source) {
         buffer = new byte[BUFFER_SIZE];
-        count = 0;
+        length = 0;
         this.source = source;
     }
 
-    private String shiftWindow(String searchBuffer) {
-        if (searchBuffer.length() > WINDOW_SIZE)
-            return searchBuffer.substring(searchBuffer.length() - WINDOW_SIZE, searchBuffer.length());
-        else
-            return searchBuffer;
-    }
-
     private void refillBuffer() throws IOException {
-        String searchBuffer = "",
-                result = "";
+        ArrayList<Byte> result = new ArrayList<>();
         byte c;
-        while (((c = (byte) source.read()) != -1) && (result.length() < BUFFER_SIZE - WORD_SIZE)) {
+        while ((result.size() < BUFFER_SIZE) && ((c = (byte) source.read()) != -1)) {
             if (c != 0) {
-                result += (char) c;
-                searchBuffer += (char) c;
+                result.add(c);
             } else {
                 int a = source.read();
                 if (a < 0)
@@ -42,64 +33,64 @@ public class CompressionInputStream extends InputStream {
                     b += 256;
                 int place = (a * 256 + b) / (WORD_SIZE + 1);
                 int size = (a * 256 + b) % (WORD_SIZE + 1);
-                result += searchBuffer.substring(place, place + size);
-                searchBuffer += searchBuffer.substring(place, place + size);
+                result.addAll(result.subList(place, place + size));
             }
-            searchBuffer = shiftWindow(searchBuffer);
         }
-        count = result.length();
-        buffer = result.getBytes().clone();
+        length = result.size();
+        int i = 0;
+        for (Byte b : result)
+            buffer[i++] = b;
     }
 
     @Override
     public int read() throws IOException {
-        if (count == 0)
+        if (length == 0)
             refillBuffer();
-        if (count == 0)
+        if (length == 0)
             return -1;
-        byte c = buffer[count - 1];
-        count--;
+        byte c = buffer[length - 1];
+        length--;
         return c;
     }
 
     @Override
     public int read(byte b[]) throws IOException {
-        int length = 0,
-                max_count = count;
+        int count = 0;
+        int max_length = length;
         for (int i = 0; i < b.length; i++) {
-            if (count == 0) {
+            if (length == 0) {
                 refillBuffer();
-                max_count = count;
+                max_length = length;
             }
-            if (count == 0)
+            if (length == 0)
                 break;
-            count--;
-            b[i] = buffer[max_count - count - 1];
-            length++;
+            length--;
+            b[i] = buffer[max_length - length - 1];
+            count++;
         }
-        if (length > 0)
-            return length;
+        if (count > 0)
+            return count;
         else
             return -1;
     }
 
     @Override
     public int read(byte b[], int off, int len) throws IOException {
-        int length = 0,
-                max_count = count;
+        int count = 0;
+        int max_length = length;
         for (int i = off; i < off + len - 1; i++) {
-            if (count == 0) {
+            if (length == 0) {
                 refillBuffer();
-                max_count = count;
+                max_length = length;
             }
-            if (count == 0)
+            if (length == 0)
                 break;
-            count--;
-            b[i] = buffer[max_count - count - 1];
-            length++;
+            length--;
+            b[i] = buffer[max_length - length - 1];
+            count++;
         }
-        if (length > 0)
-            return length;
+        if (count > 0)
+            return count;
         else
             return -1;
     }
