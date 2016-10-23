@@ -63,6 +63,9 @@ public class CompressionIOTest {
         byte[] result = new byte[str.getBytes().length];
         is.read(result);
         Assert.assertTrue(new String(result).equals(str));
+        code.close();
+        is.close();
+        os.close();
     }
 
     private void checkSizeDecrease(String str) throws IOException {
@@ -71,6 +74,8 @@ public class CompressionIOTest {
         os.write(str.getBytes());
         os.flush();
         Assert.assertTrue(str.length() >= code.toString().length());
+        code.close();
+        os.close();
     }
 
     @Test

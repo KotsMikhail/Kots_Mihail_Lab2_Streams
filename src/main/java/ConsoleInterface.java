@@ -31,10 +31,20 @@ public class ConsoleInterface {
                 } catch (IOException e) {
                     System.out.println("input/output error");
                 }
-                //...
             } else if (commandLine.hasOption("u")) {
-                String[] arguments = commandLine.getOptionValues("u");
-                //...
+                try (InputStream is = new CompressionInputStream(new FileInputStream(commandLine.getOptionValues("u")[0]));
+                     OutputStream os = new FileOutputStream(commandLine.getOptionValues("u")[1])) {
+                    int d;
+                    while ((d = is.read()) != -1) {
+                        os.write(d);
+                    }
+                    os.flush();
+                    System.out.println("Successfully unpacked file " + commandLine.getOptionValues("u")[1] + " from archive " + commandLine.getOptionValues("u")[0]);
+                } catch (FileNotFoundException e) {
+                    System.out.println("File not found");
+                } catch (IOException e) {
+                    System.out.println("input/output error");
+                }
             } else {
                 //error
             }
