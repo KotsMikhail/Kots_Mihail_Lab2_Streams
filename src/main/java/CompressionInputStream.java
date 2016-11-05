@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CompressionInputStream extends InputStream {
 
@@ -10,11 +11,13 @@ public class CompressionInputStream extends InputStream {
     private InputStream source;
     private byte[] buffer;
     private int length;
+    private int count;
 
 
     public CompressionInputStream(InputStream source) {
         buffer = new byte[BUFFER_SIZE];
         length = 0;
+        count = 0;
         this.source = source;
     }
 
@@ -37,6 +40,7 @@ public class CompressionInputStream extends InputStream {
             }
         }
         length = result.size();
+        count = 0;
         int i = 0;
         for (Byte b : result)
             buffer[i++] = b;
@@ -44,55 +48,49 @@ public class CompressionInputStream extends InputStream {
 
     @Override
     public int read() throws IOException {
-        if (length == 0)
+        if (count >= length)
             refillBuffer();
         if (length == 0)
             return -1;
-        byte c = buffer[length - 1];
-        length--;
+        byte c = buffer[count++];
         return c;
     }
 
     @Override
     public int read(byte b[]) throws IOException {
-        int count = 0;
-        int max_length = length;
+        int oldCount = count;
         for (int i = 0; i < b.length; i++) {
-            if (length == 0) {
+            if (count >= length)
                 refillBuffer();
-                max_length = length;
-            }
             if (length == 0)
                 break;
-            length--;
-            b[i] = buffer[max_length - length - 1];
-            count++;
+            b[i] = buffer[count++];
         }
-        if (count > 0)
-            return count;
+        if (count - oldCount > 0)
+            return count - oldCount;
         else
             return -1;
     }
 
     @Override
     public int read(byte b[], int off, int len) throws IOException {
-        int count = 0;
-        int max_length = length;
-        for (int i = off; i < off + len - 1; i++) {
-            if (length == 0) {
+        int oldCount = count;
+        for (int i = off; i < off + len; i++) {
+            if (count >= length)
                 refillBuffer();
-                max_length = length;
-            }
             if (length == 0)
                 break;
-            length--;
-            b[i] = buffer[max_length - length - 1];
-            count++;
+            b[i] = buffer[count++];
         }
-        if (count > 0)
-            return count;
+        if (count - oldCount > 0)
+            return count - oldCount;
         else
             return -1;
+    }
+
+    @Override
+    public void close() throws IOException {
+        source.close();
     }
 
 }

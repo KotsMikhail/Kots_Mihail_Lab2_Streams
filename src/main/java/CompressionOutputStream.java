@@ -81,9 +81,16 @@ public class CompressionOutputStream extends OutputStream {
         }
     }
 
+    @Override
     public void flush() throws IOException {
         emptyBuffer();
         target.flush();
+    }
+
+    @Override
+    public void close() throws  IOException {
+        flush();
+        target.close();
     }
 
 }

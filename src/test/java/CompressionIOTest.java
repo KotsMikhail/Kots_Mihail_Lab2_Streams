@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.Charset;
 
 public class CompressionIOTest {
 
@@ -55,25 +56,49 @@ public class CompressionIOTest {
                     "— Attendez [Подождите], — сказала Анна Павловна, соображая. — Я нынче же поговорю Lise (la femme du jeune Болконский). [с Лизой (женой молодого Болконского).] И, может быть, это уладится. Ce sera dans votre famille, que je ferai mon apprentissage de vieille fille. [Я в вашем семействе начну обучаться ремеслу старой девки.]\n";
 
     private void checkInformationIntegrity(String str) throws IOException {
-        ByteArrayOutputStream code = new ByteArrayOutputStream(2 * str.length());
+        ByteArrayOutputStream code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
         CompressionOutputStream os = new CompressionOutputStream(code);
-        os.write(str.getBytes());
+        os.write(str.getBytes(Charset.defaultCharset()));
         os.flush();
         CompressionInputStream is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
         byte[] result = new byte[str.getBytes().length];
         is.read(result);
-        Assert.assertTrue(new String(result).equals(str));
+        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
+        code.close();
+        is.close();
+        os.close();
+
+        code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
+        os = new CompressionOutputStream(code);
+        os.write(str.getBytes(Charset.defaultCharset()),0,str.getBytes(Charset.defaultCharset()).length);
+        os.flush();
+        is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
+        is.read(result,0,str.getBytes(Charset.defaultCharset()).length);
+        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
+        code.close();
+        is.close();
+        os.close();
+
+        code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
+        os = new CompressionOutputStream(code);
+        for(byte b : str.getBytes(Charset.defaultCharset()))
+            os.write(b);
+        os.flush();
+        is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
+        for(int i=0;i<result.length;i++)
+            result[i] = (byte)is.read();
+        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
         code.close();
         is.close();
         os.close();
     }
 
     private void checkSizeDecrease(String str) throws IOException {
-        OutputStream code = new ByteArrayOutputStream(str.length());
+        OutputStream code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
         CompressionOutputStream os = new CompressionOutputStream(code);
-        os.write(str.getBytes());
+        os.write(str.getBytes(Charset.defaultCharset()));
         os.flush();
-        Assert.assertTrue(str.length() >= code.toString().length());
+        Assert.assertTrue(str.getBytes(Charset.defaultCharset()).length >= code.toString().getBytes(Charset.defaultCharset()).length);
         code.close();
         os.close();
     }

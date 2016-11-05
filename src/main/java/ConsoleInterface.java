@@ -46,7 +46,7 @@ public class ConsoleInterface {
                     System.out.println("input/output error");
                 }
             } else {
-                //error
+                System.out.println("wrong input");
             }
         } catch (ParseException e) {
             e.printStackTrace();
