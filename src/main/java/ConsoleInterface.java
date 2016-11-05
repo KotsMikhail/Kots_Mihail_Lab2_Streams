@@ -7,13 +7,17 @@ public class ConsoleInterface {
     public static void main(String[] args) {
         Option pack = new Option("p", "pack", true, "Puts your file into archive");
         pack.setArgs(2);
+        pack.setArgName("target file> <archive file");
         Option unpack = new Option("u", "unpack", true, "Takes your file from archive");
         unpack.setArgs(2);
+        unpack.setArgName("archive file> <result file");
+        Option help = new Option("h", "help", false, "Prints this message");
         OptionGroup group = new OptionGroup();
         group.addOption(pack);
         group.addOption(unpack);
         Options posixOptions = new Options();
         posixOptions.addOptionGroup(group);
+        posixOptions.addOption(help);
         CommandLineParser cmdLinePosixParser = new DefaultParser();
         try {
             CommandLine commandLine = cmdLinePosixParser.parse(posixOptions, args);
@@ -26,10 +30,8 @@ public class ConsoleInterface {
                     }
                     os.flush();
                     System.out.println("Successfully created archive " + commandLine.getOptionValues("p")[1] + " from file " + commandLine.getOptionValues("p")[0]);
-                } catch (FileNotFoundException e) {
-                    System.out.println("File not found");
                 } catch (IOException e) {
-                    System.out.println("input/output error");
+                    System.out.println(e.getMessage());
                 }
             } else if (commandLine.hasOption("u")) {
                 try (InputStream is = new CompressionInputStream(new FileInputStream(commandLine.getOptionValues("u")[0]));
@@ -40,17 +42,18 @@ public class ConsoleInterface {
                     }
                     os.flush();
                     System.out.println("Successfully unpacked file " + commandLine.getOptionValues("u")[1] + " from archive " + commandLine.getOptionValues("u")[0]);
-                } catch (FileNotFoundException e) {
-                    System.out.println("File not found");
                 } catch (IOException e) {
-                    System.out.println("input/output error");
+                    System.out.println(e.getMessage());
                 }
+            } else if (commandLine.hasOption("h")) {
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp("archiver", posixOptions);
             } else {
-                System.out.println("wrong input");
+                System.out.println("Unknown option");
+                System.out.println("Consider using option -h,--help to get the lit of available commands");
             }
         } catch (ParseException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-
 }
