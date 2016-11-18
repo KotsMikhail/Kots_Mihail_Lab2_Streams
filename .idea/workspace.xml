@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="580e54af-aa75-4ece-b87e-8dc985af0ad5" name="Default" comment="another commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Test.java" />
+    <list default="true" id="580e54af-aa75-4ece-b87e-8dc985af0ad5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" afterPath="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" afterPath="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ConsoleInterface.java" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" afterPath="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" />
     </list>
     <ignored path="Kots_Mihail_Lab2_Streams.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -473,6 +468,14 @@
       <option name="presentableId" value="Default" />
       <updated>1474387683842</updated>
     </task>
+    <task id="LOCAL-00001" summary="another commit">
+      <created>1479488137350</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1479488137350</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
