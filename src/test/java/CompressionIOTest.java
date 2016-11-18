@@ -59,38 +59,13 @@ public class CompressionIOTest {
         ByteArrayOutputStream code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
         CompressionOutputStream os = new CompressionOutputStream(code);
         os.write(str.getBytes(Charset.defaultCharset()));
-        os.flush();
+        os.close();
         CompressionInputStream is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
-        byte[] result = new byte[str.getBytes().length];
+        byte[] result = new byte[str.getBytes(Charset.defaultCharset()).length];
         is.read(result);
         Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
         code.close();
         is.close();
-        os.close();
-
-        code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
-        os = new CompressionOutputStream(code);
-        os.write(str.getBytes(Charset.defaultCharset()),0,str.getBytes(Charset.defaultCharset()).length);
-        os.flush();
-        is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
-        is.read(result,0,str.getBytes(Charset.defaultCharset()).length);
-        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
-        code.close();
-        is.close();
-        os.close();
-
-        code = new ByteArrayOutputStream(str.getBytes(Charset.defaultCharset()).length);
-        os = new CompressionOutputStream(code);
-        for(byte b : str.getBytes(Charset.defaultCharset()))
-            os.write(b);
-        os.flush();
-        is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
-        for(int i=0;i<result.length;i++)
-            result[i] = (byte)is.read();
-        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
-        code.close();
-        is.close();
-        os.close();
     }
 
     private void checkSizeDecrease(String str) throws IOException {
@@ -128,6 +103,21 @@ public class CompressionIOTest {
         try {
             checkInformationIntegrity(test2);
             checkSizeDecrease(test2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void check_buffer(){
+        int size = 4095*15;
+        String test4 = "";
+        for(int i = 0; i<size; i++) {
+            test4 += "a";
+        }
+        try {
+            checkInformationIntegrity(test4);
+            checkSizeDecrease(test4);
         } catch (IOException e) {
             e.printStackTrace();
         }

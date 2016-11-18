@@ -13,10 +13,10 @@ public class CompressionOutputStream extends OutputStream {
     private byte[] buffer;
     private int length;
 
-    public CompressionOutputStream(OutputStream target) {
+    public CompressionOutputStream(OutputStream str) {
         buffer = new byte[BUFFER_SIZE];
+        target = str;
         length = 0;
-        this.target = target;
     }
 
     private void emptyBuffer() throws IOException {
@@ -28,7 +28,7 @@ public class CompressionOutputStream extends OutputStream {
         for (int i = 0; i < length; i++) {
             currentWord.add(buffer[i]);
             index = Collections.indexOfSubList(searchBuffer, currentWord);
-            if (index != -1 && currentWord.size() < WORD_SIZE) {
+            if (index != -1 && currentWord.size() <= WORD_SIZE) {
                 position = index;
             } else {
                 Byte last = currentWord.remove(currentWord.size() - 1);
@@ -65,20 +65,13 @@ public class CompressionOutputStream extends OutputStream {
     }
 
     public void write(byte b[]) throws IOException {
-        for (byte c : b) {
-            if (length >= BUFFER_SIZE)
-                emptyBuffer();
-            buffer[length++] = c;
-        }
+        write(b,0,b.length);
     }
 
     @Override
     public void write(byte b[], int off, int len) throws IOException {
-        for (int i = off; i < off + len; i++) {
-            if (length >= BUFFER_SIZE)
-                emptyBuffer();
-            buffer[length++] = b[i];
-        }
+        for (int i = off; i < off + len; i++)
+            write(b[i]);
     }
 
     @Override

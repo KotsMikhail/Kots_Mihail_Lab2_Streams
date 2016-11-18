@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="580e54af-aa75-4ece-b87e-8dc985af0ad5" name="Default" comment="coding algorythm probably works now">
+    <list default="true" id="580e54af-aa75-4ece-b87e-8dc985af0ad5" name="Default" comment="another commit">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.txt" afterPath="$PROJECT_DIR$/file.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" afterPath="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" afterPath="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ConsoleInterface.java" afterPath="$PROJECT_DIR$/src/main/java/ConsoleInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" afterPath="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" />
     </list>
@@ -28,31 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConsoleInterface.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConsoleInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ConsoleInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompressionIOTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CompressionIOTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/CompressionIOTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
+            <state relative-caret-position="176">
+              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -61,8 +52,8 @@
       <file leaf-file-name="CompressionInputStream.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CompressionInputStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="176">
+              <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -71,11 +62,9 @@
       <file leaf-file-name="CompressionOutputStream.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/CompressionOutputStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,11 +88,12 @@
         <option value="$PROJECT_DIR$/src/main/java/LZ77.java" />
         <option value="$PROJECT_DIR$/src/test/java/Utils.java" />
         <option value="$PROJECT_DIR$/src/test/java/MyUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" />
-        <option value="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ConsoleInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CompressionIOTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CompressionOutputStream.java" />
+        <option value="$PROJECT_DIR$/src/main/java/CompressionInputStream.java" />
       </list>
     </option>
   </component>
@@ -173,11 +163,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kots_Mihail_Lab2_Streams" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -190,7 +187,7 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.ConsoleInterface">
+  <component name="RunManager" selected="JUnit.CompressionIOTest">
     <configuration default="false" name="ConsoleInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ConsoleInterface" />
       <option name="VM_PARAMETERS" value="" />
@@ -225,26 +222,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CompressionIOTest.check_advanced" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Kots_Mihail_Lab2_Streams" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CompressionIOTest" />
-      <option name="METHOD_NAME" value="check_advanced" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="CompressionIOTest.check_big" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Kots_Mihail_Lab2_Streams" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -265,13 +242,27 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CompressionIOTest.check_simple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Kots_Mihail_Lab2_Streams" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CompressionIOTest.check_buffer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Kots_Mihail_Lab2_Streams" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CompressionIOTest" />
-      <option name="METHOD_NAME" value="check_simple" />
+      <option name="METHOD_NAME" value="check_buffer" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -451,17 +442,17 @@
       <item index="0" class="java.lang.String" itemvalue="Maven.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="Application.ConsoleInterface" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.CompressionIOTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_advanced" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_big" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_simple" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_big" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_buffer" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ConsoleInterface" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CompressionIOTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_big" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_simple" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_advanced" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CompressionIOTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_buffer" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Test" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ConsoleInterface" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CompressionIOTest.check_big" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
@@ -485,35 +476,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CompressionIOTest - 2016.10.26 at 20h 11m 38s.xml">
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 12m 04s.xml">
       <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest - 2016.10.26 at 20h 18m 07s.xml">
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 12m 26s.xml">
       <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest - 2016.10.27 at 15h 28m 05s.xml">
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 12m 33s.xml">
       <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest - 2016.10.27 at 15h 28m 18s.xml">
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 13m 38s.xml">
       <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest - 2016.11.01 at 16h 51m 33s.xml">
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 13m 59s.xml">
       <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest_check_big - 2016.10.21 at 19h 41m 21s.xml">
-      <configuration name="CompressionIOTest.check_big" configurationId="JUnit" />
+    <history-entry file="CompressionIOTest - 2016.11.13 at 18h 14m 37s.xml">
+      <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest_check_big - 2016.10.21 at 20h 05m 13s.xml">
-      <configuration name="CompressionIOTest.check_big" configurationId="JUnit" />
+    <history-entry file="CompressionIOTest - 2016.11.18 at 19h 53m 26s.xml">
+      <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest_check_big - 2016.10.21 at 20h 25m 42s.xml">
-      <configuration name="CompressionIOTest.check_big" configurationId="JUnit" />
+    <history-entry file="CompressionIOTest - 2016.11.18 at 19h 53m 49s.xml">
+      <configuration name="CompressionIOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest_check_big - 2016.10.21 at 20h 26m 17s.xml">
-      <configuration name="CompressionIOTest.check_big" configurationId="JUnit" />
+    <history-entry file="CompressionIOTest_check_buffer - 2016.11.13 at 12h 59m 05s.xml">
+      <configuration name="CompressionIOTest.check_buffer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressionIOTest_check_big - 2016.10.21 at 20h 27m 47s.xml">
-      <configuration name="CompressionIOTest.check_big" configurationId="JUnit" />
+    <history-entry file="CompressionIOTest_check_buffer - 2016.11.13 at 12h 59m 39s.xml">
+      <configuration name="CompressionIOTest.check_buffer" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -527,7 +518,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -535,9 +526,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5048544" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298731" sideWeight="0.49514562" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.49514562" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -565,7 +556,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298731" sideWeight="0.49514562" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.49514562" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -588,17 +579,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="another commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="another commit" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CompressionInputStream.java</url>
-          <line>92</line>
-          <properties />
-          <option name="timeStamp" value="208" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="209" />
+      <option name="time" value="223" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -606,24 +593,16 @@
         <watch expression="new String(result)" language="JAVA" />
         <watch expression="str.length()" language="JAVA" />
         <watch expression="code" />
+        <watch expression="result.size()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ConsoleInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CompressionOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -659,9 +638,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,9 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -707,9 +682,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -841,13 +814,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MyUtils.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
@@ -856,13 +822,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/archive.txt" />
-    <entry file="file://$PROJECT_DIR$/result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/result.txt" />
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -888,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3182">
           <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4197">
           <caret line="44" column="51" selection-start-line="44" selection-start-column="51" selection-end-line="44" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,41 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1066">
           <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CompressionOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CompressionInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CompressionIOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="135" column="6" selection-start-line="135" selection-start-column="6" selection-end-line="135" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,14 +883,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ConsoleInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CompressionInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/CompressionOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CompressionIOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
           <folding />
         </state>
       </provider>

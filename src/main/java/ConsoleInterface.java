@@ -2,7 +2,9 @@ import org.apache.commons.cli.*;
 
 import java.io.*;
 
-public class ConsoleInterface {
+public final class ConsoleInterface {
+
+    private ConsoleInterface() {}
 
     public static void main(String[] args) {
         Option pack = new Option("p", "pack", true, "Puts your file into archive");

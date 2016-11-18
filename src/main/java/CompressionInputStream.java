@@ -14,11 +14,11 @@ public class CompressionInputStream extends InputStream {
     private int count;
 
 
-    public CompressionInputStream(InputStream source) {
+    public CompressionInputStream(InputStream str) {
         buffer = new byte[BUFFER_SIZE];
+        source = str;
         length = 0;
         count = 0;
-        this.source = source;
     }
 
     private void refillBuffer() throws IOException {
@@ -29,9 +29,11 @@ public class CompressionInputStream extends InputStream {
                 result.add(c);
             } else {
                 int a = source.read();
+                int b = source.read();
+                if(a == -1 || b == -1)
+                    throw new IOException("File is not an archive");
                 if (a < 0)
                     a += 256;
-                int b = source.read();
                 if (b < 0)
                     b += 256;
                 int place = (a * 256 + b) / (WORD_SIZE + 1);
@@ -52,35 +54,20 @@ public class CompressionInputStream extends InputStream {
             refillBuffer();
         if (length == 0)
             return -1;
-        byte c = buffer[count++];
-        return c;
+        return  buffer[count++];
     }
 
     @Override
     public int read(byte b[]) throws IOException {
-        int oldCount = count;
-        for (int i = 0; i < b.length; i++) {
-            if (count >= length)
-                refillBuffer();
-            if (length == 0)
-                break;
-            b[i] = buffer[count++];
-        }
-        if (count - oldCount > 0)
-            return count - oldCount;
-        else
-            return -1;
+        return read(b,0,b.length);
     }
 
     @Override
     public int read(byte b[], int off, int len) throws IOException {
         int oldCount = count;
         for (int i = off; i < off + len; i++) {
-            if (count >= length)
-                refillBuffer();
-            if (length == 0)
+            if ((b[i] = (byte) read()) == -1)
                 break;
-            b[i] = buffer[count++];
         }
         if (count - oldCount > 0)
             return count - oldCount;
