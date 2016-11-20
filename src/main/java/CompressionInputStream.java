@@ -25,7 +25,10 @@ public class CompressionInputStream extends InputStream {
         ArrayList<Byte> result = new ArrayList<>();
         byte c;
         while ((result.size() < BUFFER_SIZE) && ((c = (byte) source.read()) != -1)) {
-            if (c != 0) {
+            if (c == 0) {
+                c = (byte) source.read();
+                if(c == -1)
+                    throw new IOException("File is not an archive");
                 result.add(c);
             } else {
                 int a = source.read();

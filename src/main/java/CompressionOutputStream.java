@@ -33,11 +33,14 @@ public class CompressionOutputStream extends OutputStream {
             } else {
                 Byte last = currentWord.remove(currentWord.size() - 1);
                 int code = position * (WORD_SIZE + 1) + currentWord.size();
-                Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
+                Byte[] codedString = {1, (byte) (code / 256), (byte) (code % 256)};
                 if (codedString.length < currentWord.size()) {
                     result.addAll(Arrays.asList(codedString));
                 } else {
-                    result.addAll(currentWord);
+                    for(byte b : currentWord) {
+                        result.add((byte) 0);
+                        result.add(b);
+                    }
                 }
                 searchBuffer.addAll(currentWord);
                 currentWord.clear();
@@ -46,11 +49,14 @@ public class CompressionOutputStream extends OutputStream {
             }
         }
         int code = position * (WORD_SIZE + 1) + currentWord.size();
-        Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
+        Byte[] codedString = {1, (byte) (code / 256), (byte) (code % 256)};
         if (codedString.length < currentWord.size()) {
             result.addAll(Arrays.asList(codedString));
         } else {
-            result.addAll(currentWord);
+            for(byte b : currentWord) {
+                result.add((byte) 0);
+                result.add(b);
+            }
         }
         for (Byte b : result)
             target.write(b);
