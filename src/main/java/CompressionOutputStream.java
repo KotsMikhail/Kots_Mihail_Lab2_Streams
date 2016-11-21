@@ -22,6 +22,7 @@ public class CompressionOutputStream extends OutputStream {
     private void emptyBuffer() throws IOException {
         ArrayList<Byte> searchBuffer = new ArrayList<>();
         ArrayList<Byte> currentWord = new ArrayList<>();
+        ArrayList<Byte> uncodedPart = new ArrayList<>();
         ArrayList<Byte> result = new ArrayList<>();
         int index;
         int position = 0;
@@ -33,14 +34,21 @@ public class CompressionOutputStream extends OutputStream {
             } else {
                 Byte last = currentWord.remove(currentWord.size() - 1);
                 int code = position * (WORD_SIZE + 1) + currentWord.size();
-                Byte[] codedString = {1, (byte) (code / 256), (byte) (code % 256)};
+                Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
+                if (uncodedPart.toArray().length + currentWord.toArray().length >= 255) {
+                    result.add((byte) uncodedPart.toArray().length);
+                    result.addAll(uncodedPart);
+                    uncodedPart.clear();
+                }
                 if (codedString.length < currentWord.size()) {
+                    if(!uncodedPart.isEmpty()) {
+                        result.add((byte) uncodedPart.toArray().length);
+                        result.addAll(uncodedPart);
+                        uncodedPart.clear();
+                    }
                     result.addAll(Arrays.asList(codedString));
                 } else {
-                    for(byte b : currentWord) {
-                        result.add((byte) 0);
-                        result.add(b);
-                    }
+                    uncodedPart.addAll(currentWord);
                 }
                 searchBuffer.addAll(currentWord);
                 currentWord.clear();
@@ -49,14 +57,25 @@ public class CompressionOutputStream extends OutputStream {
             }
         }
         int code = position * (WORD_SIZE + 1) + currentWord.size();
-        Byte[] codedString = {1, (byte) (code / 256), (byte) (code % 256)};
+        Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
+        if (uncodedPart.toArray().length + currentWord.toArray().length >= 255) {
+            result.add((byte) uncodedPart.toArray().length);
+            result.addAll(uncodedPart);
+            uncodedPart.clear();
+        }
         if (codedString.length < currentWord.size()) {
+            if(!uncodedPart.isEmpty()) {
+                result.add((byte) uncodedPart.toArray().length);
+                result.addAll(uncodedPart);
+                uncodedPart.clear();
+            }
             result.addAll(Arrays.asList(codedString));
         } else {
-            for(byte b : currentWord) {
-                result.add((byte) 0);
-                result.add(b);
-            }
+            uncodedPart.addAll(currentWord);
+        }
+        if(!uncodedPart.isEmpty()) {
+            result.add((byte) uncodedPart.toArray().length);
+            result.addAll(uncodedPart);
         }
         for (Byte b : result)
             target.write(b);
@@ -71,7 +90,7 @@ public class CompressionOutputStream extends OutputStream {
     }
 
     public void write(byte b[]) throws IOException {
-        write(b,0,b.length);
+        write(b, 0, b.length);
     }
 
     @Override
@@ -87,7 +106,7 @@ public class CompressionOutputStream extends OutputStream {
     }
 
     @Override
-    public void close() throws  IOException {
+    public void close() throws IOException {
         flush();
         target.close();
     }

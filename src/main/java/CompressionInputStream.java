@@ -25,15 +25,13 @@ public class CompressionInputStream extends InputStream {
         ArrayList<Byte> result = new ArrayList<>();
         byte c;
         while ((result.size() < BUFFER_SIZE) && ((c = (byte) source.read()) != -1)) {
-            if (c == 0) {
-                c = (byte) source.read();
-                if(c == -1)
-                    throw new IOException("File is not an archive");
-                result.add(c);
+            if (c != 0) {
+                for (int i = 0; i < c; i++)
+                    result.add((byte) source.read());
             } else {
                 int a = source.read();
                 int b = source.read();
-                if(a == -1 || b == -1)
+                if (a == -1 || b == -1)
                     throw new IOException("File is not an archive");
                 if (a < 0)
                     a += 256;
@@ -57,12 +55,12 @@ public class CompressionInputStream extends InputStream {
             refillBuffer();
         if (length == 0)
             return -1;
-        return  buffer[count++];
+        return buffer[count++];
     }
 
     @Override
     public int read(byte b[]) throws IOException {
-        return read(b,0,b.length);
+        return read(b, 0, b.length);
     }
 
     @Override

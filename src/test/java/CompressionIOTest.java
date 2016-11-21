@@ -82,7 +82,6 @@ public class CompressionIOTest {
     public void check_empty() {
         try {
             checkInformationIntegrity("");
-            //checkSizeDecrease("");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +91,6 @@ public class CompressionIOTest {
     public void check_simple() {
         try {
             checkInformationIntegrity(test1);
-            //checkSizeDecrease(test1);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,7 +100,7 @@ public class CompressionIOTest {
     public void check_advanced() {
         try {
             checkInformationIntegrity(test2);
-            //checkSizeDecrease(test2);
+            checkSizeDecrease(test2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -118,7 +116,7 @@ public class CompressionIOTest {
         String test4 = new String(arr);
         try {
             checkInformationIntegrity(test4);
-            //checkSizeDecrease(test4);
+            checkSizeDecrease(test4);
         } catch (IOException e) {
             e.printStackTrace();
         }
