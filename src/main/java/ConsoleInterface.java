@@ -26,9 +26,10 @@ public final class ConsoleInterface {
             if (commandLine.hasOption("p")) {
                 try (InputStream is = new FileInputStream(commandLine.getOptionValues("p")[0]);
                      OutputStream os = new CompressionOutputStream(new FileOutputStream(commandLine.getOptionValues("p")[1]))) {
-                    int d;
-                    while ((d = is.read()) != -1) {
+                    int d = is.read();
+                    while (d != -1) {
                         os.write(d);
+                        d = is.read();
                     }
                     os.flush();
                     System.out.println("Successfully created archive " + commandLine.getOptionValues("p")[1] + " from file " + commandLine.getOptionValues("p")[0]);
@@ -38,9 +39,10 @@ public final class ConsoleInterface {
             } else if (commandLine.hasOption("u")) {
                 try (InputStream is = new CompressionInputStream(new FileInputStream(commandLine.getOptionValues("u")[0]));
                      OutputStream os = new FileOutputStream(commandLine.getOptionValues("u")[1])) {
-                    int d;
-                    while ((d = is.read()) != -1) {
+                    int d = is.read();
+                    while (d != -1) {
                         os.write(d);
+                        d = is.read();
                     }
                     os.flush();
                     System.out.println("Successfully unpacked file " + commandLine.getOptionValues("u")[1] + " from archive " + commandLine.getOptionValues("u")[0]);

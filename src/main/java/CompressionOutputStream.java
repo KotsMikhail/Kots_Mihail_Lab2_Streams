@@ -8,6 +8,7 @@ public class CompressionOutputStream extends OutputStream {
 
     private static final int BUFFER_SIZE = 4095;
     private static final int WORD_SIZE = 15;
+    private static final int BYTE_SIZE = 256;
 
     private OutputStream target;
     private byte[] buffer;
@@ -34,8 +35,8 @@ public class CompressionOutputStream extends OutputStream {
             } else {
                 Byte last = currentWord.remove(currentWord.size() - 1);
                 int code = position * (WORD_SIZE + 1) + currentWord.size();
-                Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
-                if (uncodedPart.toArray().length + currentWord.toArray().length >= 255) {
+                Byte[] codedString = {0, (byte) (code / BYTE_SIZE), (byte) (code % BYTE_SIZE)};
+                if (uncodedPart.toArray().length + currentWord.toArray().length >= BYTE_SIZE - 1) {
                     result.add((byte) uncodedPart.toArray().length);
                     result.addAll(uncodedPart);
                     uncodedPart.clear();
@@ -57,8 +58,8 @@ public class CompressionOutputStream extends OutputStream {
             }
         }
         int code = position * (WORD_SIZE + 1) + currentWord.size();
-        Byte[] codedString = {0, (byte) (code / 256), (byte) (code % 256)};
-        if (uncodedPart.toArray().length + currentWord.toArray().length >= 255) {
+        Byte[] codedString = {0, (byte) (code / BYTE_SIZE), (byte) (code % BYTE_SIZE)};
+        if (uncodedPart.toArray().length + currentWord.toArray().length >= BYTE_SIZE - 1) {
             result.add((byte) uncodedPart.toArray().length);
             result.addAll(uncodedPart);
             uncodedPart.clear();

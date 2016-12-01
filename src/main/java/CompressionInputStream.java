@@ -7,6 +7,7 @@ public class CompressionInputStream extends InputStream {
 
     private static final int BUFFER_SIZE = 4095;
     private static final int WORD_SIZE = 15;
+    private static final int BYTE_SIZE = 256;
 
     private InputStream source;
     private byte[] buffer;
@@ -23,24 +24,31 @@ public class CompressionInputStream extends InputStream {
 
     private void refillBuffer() throws IOException {
         ArrayList<Byte> result = new ArrayList<>();
-        byte c;
-        while ((result.size() < BUFFER_SIZE) && ((c = (byte) source.read()) != -1)) {
+        int c = source.read();
+        while ((result.size() < BUFFER_SIZE) && (c != -1)) {
             if (c != 0) {
-                for (int i = 0; i < c; i++)
-                    result.add((byte) source.read());
+                for (int i = 0; i < c; i++) {
+                    int d = source.read();
+                    if (d != -1)
+                        result.add((byte) d);
+                    else
+                        throw new IOException("File is not an archive");
+                }
             } else {
                 int a = source.read();
                 int b = source.read();
                 if (a == -1 || b == -1)
                     throw new IOException("File is not an archive");
                 if (a < 0)
-                    a += 256;
+                    a += BYTE_SIZE;
                 if (b < 0)
-                    b += 256;
-                int place = (a * 256 + b) / (WORD_SIZE + 1);
-                int size = (a * 256 + b) % (WORD_SIZE + 1);
+                    b += BYTE_SIZE;
+                int place = (a * BYTE_SIZE + b) / (WORD_SIZE + 1);
+                int size = (a * BYTE_SIZE + b) % (WORD_SIZE + 1);
                 result.addAll(result.subList(place, place + size));
             }
+            if(result.size() < BUFFER_SIZE)
+                c = source.read();
         }
         length = result.size();
         count = 0;
@@ -67,8 +75,11 @@ public class CompressionInputStream extends InputStream {
     public int read(byte b[], int off, int len) throws IOException {
         int oldCount = count;
         for (int i = off; i < off + len; i++) {
-            if ((b[i] = (byte) read()) == -1)
+            int d = read();
+            if (d == -1)
                 break;
+            else
+                b[i] = (byte) d;
         }
         if (count - oldCount > 0)
             return count - oldCount;

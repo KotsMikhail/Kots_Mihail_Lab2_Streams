@@ -9,7 +9,7 @@ public class CompressionIOTest {
     private static final String test1 = "Hello, world!";
     private static final String test2 = "The compression and the decompression leave an impression. Hahahahahahahaha!";
     private static final String test3 =
-                    "Лев Николаевич Толстой\n" +
+            "Лев Николаевич Толстой\n" +
                     "ВОЙНА И МИР\n" +
                     "Том 1\n" +
                     "ЧАСТЬ ПЕРВАЯ\n" +
@@ -63,7 +63,7 @@ public class CompressionIOTest {
         CompressionInputStream is = new CompressionInputStream(new ByteArrayInputStream(code.toByteArray()));
         byte[] result = new byte[str.getBytes(Charset.defaultCharset()).length];
         is.read(result);
-        Assert.assertTrue(new String(result,Charset.defaultCharset()).equals(str));
+        Assert.assertTrue(new String(result, Charset.defaultCharset()).equals(str));
         code.close();
         is.close();
     }
@@ -107,7 +107,7 @@ public class CompressionIOTest {
     }
 
     @Test
-    public void check_buffer(){
+    public void check_buffer() {
         final int size = 100000;
         final byte[] arr = new byte[size];
         for (int i = 0; i < size; i++) {
